@@ -18,3 +18,19 @@ vector<vector<long long int>> printPascal(int n)
 
     return v;
 }
+
+//Kth row
+vector<long long> kthRow(long long k) 
+{
+	vector<long long> row(k);
+	row[0] = 1;
+	long long res = 1;
+	for(int i = 1;i < k;i++){
+		res *= (k-i);
+		res /= i;
+		row[i] = res;
+	}
+	
+	
+	return row;
+} 
