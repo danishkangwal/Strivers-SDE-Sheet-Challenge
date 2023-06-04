@@ -34,3 +34,24 @@ vector<long long> kthRow(long long k)
 	
 	return row;
 } 
+
+//first N rows
+vector<int> generate(int rows){
+    vector<int> ans;
+    ans.push_back(1);
+    int res = 1;
+    for(int col = 1;col < rows;col++){
+        res *= (rows-col);
+        res /= col;
+        ans.push_back(res);
+    }
+    return ans;
+}
+
+vector<vector<int>> pascalTriangle(int N) {
+    vector<vector<int>> ans;
+    for(int i = 1;i <= N;i++){
+        ans.push_back(generate(i));
+    }
+    return ans;
+}
