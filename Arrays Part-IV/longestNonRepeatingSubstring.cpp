@@ -1,3 +1,4 @@
+// sol 1
 int uniqueSubstrings(string s)
 {
     if(s.size()==1)
@@ -15,6 +16,24 @@ int uniqueSubstrings(string s)
             }
         }  
         st.insert(s[r]);
+        res = max(res,r-l+1);
+    }
+    
+    return res;
+}
+// sol 2
+int uniqueSubstrings(string s)
+{
+    
+    int res = INT_MIN;
+    
+    vector<int> mp(256,-1);
+    int l = 0;
+    for(int r = 0;r < s.size();r++){
+        if(mp[s[r]] != -1){
+            l = max(mp[s[r]]+1,l);
+        }
+        mp[s[r]] = r;
         res = max(res,r-l+1);
     }
     
